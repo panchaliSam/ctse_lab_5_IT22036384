@@ -1,0 +1,250 @@
+{
+  "info": {
+    "name": "Microservices Lab 5",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Item Service",
+      "item": [
+        {
+          "name": "Get Items",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{BASE_URL_ITEM_SERVICE}}/items",
+              "host": ["{{BASE_URL_ITEM_SERVICE}}"],
+              "path": ["items"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Item",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Notebook\",\n  \"price\": 1200.0,\n  \"quantity\": 10\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL_ITEM_SERVICE}}/items",
+              "host": ["{{BASE_URL_ITEM_SERVICE}}"],
+              "path": ["items"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Item By Id",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{BASE_URL_ITEM_SERVICE}}/items/1000",
+              "host": ["{{BASE_URL_ITEM_SERVICE}}"],
+              "path": ["items", "1000"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Order Service",
+      "item": [
+        {
+          "name": "Get Orders",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{BASE_URL_ORDER_SERVICE}}/orders",
+              "host": ["{{BASE_URL_ORDER_SERVICE}}"],
+              "path": ["orders"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"itemId\": 1000,\n  \"quantity\": 2,\n  \"total\": 2400.0\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL_ORDER_SERVICE}}/orders",
+              "host": ["{{BASE_URL_ORDER_SERVICE}}"],
+              "path": ["orders"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Order By Id",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{BASE_URL_ORDER_SERVICE}}/orders/2000",
+              "host": ["{{BASE_URL_ORDER_SERVICE}}"],
+              "path": ["orders", "2000"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Payment Service",
+      "item": [
+        {
+          "name": "Get Payments",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{BASE_URL_PAYMENT_SERVICE}}/payments",
+              "host": ["{{BASE_URL_PAYMENT_SERVICE}}"],
+              "path": ["payments"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Process Payment",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderId\": 2000,\n  \"amount\": 2400.0\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL_PAYMENT_SERVICE}}/payments/process",
+              "host": ["{{BASE_URL_PAYMENT_SERVICE}}"],
+              "path": ["payments", "process"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Payment By Id",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{BASE_URL_PAYMENT_SERVICE}}/payments/3000",
+              "host": ["{{BASE_URL_PAYMENT_SERVICE}}"],
+              "path": ["payments", "3000"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "API Gateway",
+      "item": [
+        {
+          "name": "Gateway - Get Items",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{BASE_URL_GATEWAY}}/items",
+              "host": ["{{BASE_URL_GATEWAY}}"],
+              "path": ["items"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Gateway - Create Item",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Pen\",\n  \"price\": 150.0,\n  \"quantity\": 20\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL_GATEWAY}}/items",
+              "host": ["{{BASE_URL_GATEWAY}}"],
+              "path": ["items"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Gateway - Get Orders",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{BASE_URL_GATEWAY}}/orders",
+              "host": ["{{BASE_URL_GATEWAY}}"],
+              "path": ["orders"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Gateway - Create Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"itemId\": 1000,\n  \"quantity\": 1,\n  \"total\": 1200.0\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL_GATEWAY}}/orders",
+              "host": ["{{BASE_URL_GATEWAY}}"],
+              "path": ["orders"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Gateway - Get Payments",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{BASE_URL_GATEWAY}}/payments",
+              "host": ["{{BASE_URL_GATEWAY}}"],
+              "path": ["payments"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Gateway - Process Payment",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderId\": 2000,\n  \"amount\": 2400.0\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL_GATEWAY}}/payments/process",
+              "host": ["{{BASE_URL_GATEWAY}}"],
+              "path": ["payments", "process"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
